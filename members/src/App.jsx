@@ -60,8 +60,8 @@ const maintainers = [
   { name: "M Sai Sree Harsha", roll: "23R11A05X8"},
   { name: "K Advaith", roll: "23R11A05W7"},
   { name: "S Nyneeta Rao", roll: "23R11A05Y0"},
-  { name: "C V N S S Sarvan", roll: "23R11A05V3"},
   { name: "K Keerthana", roll: "23R11A05B3"},
+  { name: "Vraj Kishore", roll: "24R11A05X5"}
 
 ];
 
@@ -75,7 +75,6 @@ const contributors = [
   { name: "Murathota Jayakar Emmanuel", roll: "AIML-1st Year" },
   { name: "Bhavana Sree Kalisetty ", roll: "AIML-1st Year" },
   { name: "Amodini Mahdelay ", roll: "CSE-1st Year" },
-  { name: "Bhavana Sree Kalisetty ", roll: "AIML-1st Year" },
   { name: "P.V.Harshita", roll: "AIML-1st Year" },
   { name: "Anushka Yamanoor ", roll: "AIML-1st Year" },
   { name: "Madhu Sarika Shatdharshanam ", roll: "AIML-1st Year" },
