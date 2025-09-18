@@ -206,7 +206,7 @@ function ApplyForm() {
             <textarea
               id="skills"
               name="skills"
-              placeholder="e.g., Java, Python, Web Development"
+              placeholder="e.g., Go lang, Python, Web Development"
               value={formData.skills}
               onChange={handleChange}
               required
