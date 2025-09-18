@@ -1,5 +1,6 @@
-import "./apply_form.css";
 import { useState } from "react";
+import Navbar from "./assets/Navbar";
+import Footer from "./assets/Footer";
 
 function ApplyForm() {
   const [formData, setFormData] = useState({
@@ -24,7 +25,6 @@ function ApplyForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate required fields
     const requiredFields = [
       "fullName",
       "rollNumber",
@@ -45,137 +45,259 @@ function ApplyForm() {
       }
     }
 
-    console.log(formData);
+    console.log("Application Submitted:", formData);
     alert("Application submitted successfully!");
-    // Send formData to backend here
+
+    // Reset form
+    setFormData({
+      fullName: "",
+      rollNumber: "",
+      phoneNumber: "",
+      email: "",
+      year: "",
+      branchSection: "",
+      skills: "",
+      whyJoin: "",
+      contribution: "",
+      role: "",
+      additional: "",
+    });
   };
 
   return (
-    <div className="applyform">
-      <h1>Apply to Join OSS GCET</h1>
-      <p>
-        Join our vibrant community of developers and innovators. We're looking for passionate students who want to contribute to open source projects and grow their technical skills together.
-      </p>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="fullName">Full Name</label>
-        <input
-          type="text"
-          id="fullName"
-          name="fullName"
-          placeholder="Enter your Name"
-          value={formData.fullName}
-          onChange={handleChange}
-          required
-        />
+    <>
+      <Navbar/>
+      {/* Banner image */}
+      <img
+        className="mx-auto my-6 w-full max-w-md rounded-2xl shadow-lg"
+        src="./apply_form.png"
+        alt="Apply Form Banner"
+      />
+      <div className="min-h-screen flex flex-col items-center px-4 py-10">
+      <div className="max-w-2xl w-full bg-white rounded-xl">
+        {/* Title */}
+        <h1 className="text-2xl text-center mb-4">
+          Apply to Join OSS GCET
+        </h1>
+        <p className="text-gray-600 text-center mb-8">
+          Join our vibrant community of developers and innovators. We're looking
+          for passionate students who want to contribute to open source projects
+          and grow their technical skills together.
+        </p>
 
-        <label htmlFor="rollNumber">Roll Number</label>
-        <input
-          type="text"
-          id="rollNumber"
-          name="rollNumber"
-          placeholder="Enter your Roll Number"
-          value={formData.rollNumber}
-          onChange={handleChange}
-          required
-        />
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Full Name */}
+          <div>
+            <label htmlFor="fullName" className="block text-sm font-medium mb-1">
+              Full Name
+            </label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              placeholder="Enter your Name"
+              value={formData.fullName}
+              onChange={handleChange}
+              required
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-        <label htmlFor="phoneNumber">Phone Number</label>
-        <input
-          type="text"
-          id="phoneNumber"
-          name="phoneNumber"
-          placeholder="Enter your Phone Number"
-          value={formData.phoneNumber}
-          onChange={handleChange}
-          required
-        />
+          {/* Roll Number */}
+          <div>
+            <label
+              htmlFor="rollNumber"
+              className="block text-sm font-medium mb-1"
+            >
+              Roll Number
+            </label>
+            <input
+              type="text"
+              id="rollNumber"
+              name="rollNumber"
+              placeholder="Enter your Roll Number"
+              value={formData.rollNumber}
+              onChange={handleChange}
+              required
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Enter your Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
+          {/* Phone Number */}
+          <div>
+            <label
+              htmlFor="phoneNumber"
+              className="block text-sm font-medium mb-1"
+            >
+              Phone Number
+            </label>
+            <input
+              type="text"
+              id="phoneNumber"
+              name="phoneNumber"
+              placeholder="Enter your Phone Number"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              required
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-        <label htmlFor="year">Year</label>
-        <input
-          type="text"
-          id="year"
-          name="year"
-          placeholder="Enter your Year"
-          value={formData.year}
-          onChange={handleChange}
-          required
-        />
+          {/* Email */}
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium mb-1">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-        <label htmlFor="branchSection">Branch/Section</label>
-        <input
-          type="text"
-          id="branchSection"
-          name="branchSection"
-          placeholder="Enter your Branch/Section"
-          value={formData.branchSection}
-          onChange={handleChange}
-          required
-        />
+          {/* Year */}
+          <div>
+            <label htmlFor="year" className="block text-sm font-medium mb-1">
+              Year
+            </label>
+            <input
+              type="text"
+              id="year"
+              name="year"
+              placeholder="Enter your Year"
+              value={formData.year}
+              onChange={handleChange}
+              required
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-        <label htmlFor="skills">List Your Skills (Separate by commas)</label>
-        <textarea
-          id="skills"
-          name="skills"
-          placeholder="e.g., Java, Python, Web Development"
-          value={formData.skills}
-          onChange={handleChange}
-          required
-        ></textarea>
+          {/* Branch Section */}
+          <div>
+            <label
+              htmlFor="branchSection"
+              className="block text-sm font-medium mb-1"
+            >
+              Branch/Section
+            </label>
+            <input
+              type="text"
+              id="branchSection"
+              name="branchSection"
+              placeholder="Enter your Branch/Section"
+              value={formData.branchSection}
+              onChange={handleChange}
+              required
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-        <label htmlFor="whyJoin">Why do you want to join OSS GCET?</label>
-        <textarea
-          id="whyJoin"
-          name="whyJoin"
-          placeholder="Your reason..."
-          value={formData.whyJoin}
-          onChange={handleChange}
-          required
-        ></textarea>
+          {/* Skills */}
+          <div>
+            <label htmlFor="skills" className="block text-sm font-medium mb-1">
+              List Your Skills (Separate by commas)
+            </label>
+            <textarea
+              id="skills"
+              name="skills"
+              placeholder="e.g., Java, Python, Web Development"
+              value={formData.skills}
+              onChange={handleChange}
+              required
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+          </div>
 
-        <label htmlFor="contribution">Have you contributed in Open Source before? (Yes/No + Details)</label>
-        <textarea
-          id="contribution"
-          name="contribution"
-          placeholder="Yes(Details) / No(but interested)"
-          value={formData.contribution}
-          onChange={handleChange}
-          required
-        ></textarea>
+          {/* Why Join */}
+          <div>
+            <label htmlFor="whyJoin" className="block text-sm font-medium mb-1">
+              Why do you want to join OSS GCET?
+            </label>
+            <textarea
+              id="whyJoin"
+              name="whyJoin"
+              placeholder="Your reason..."
+              value={formData.whyJoin}
+              onChange={handleChange}
+              required
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+          </div>
 
-        <label htmlFor="role">Preferred Role in Club</label>
-        <input
-          type="text"
-          id="role"
-          name="role"
-          placeholder="Enter your preferred role"
-          value={formData.role}
-          onChange={handleChange}
-          required
-        />
+          {/* Contribution */}
+          <div>
+            <label
+              htmlFor="contribution"
+              className="block text-sm font-medium mb-1"
+            >
+              Have you contributed in Open Source before? (Yes/No + Details)
+            </label>
+            <textarea
+              id="contribution"
+              name="contribution"
+              placeholder="Yes(Details) / No(but interested)"
+              value={formData.contribution}
+              onChange={handleChange}
+              required
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+          </div>
 
-        <label htmlFor="additional">Additional Information (Optional)</label>
-        <textarea
-          id="additional"
-          name="additional"
-          placeholder="Anything else you'd like to share"
-          value={formData.additional}
-          onChange={handleChange}
-        ></textarea>
+          {/* Role */}
+          <div>
+            <label htmlFor="role" className="block text-sm font-medium mb-1">
+              Preferred Role in Club
+            </label>
+            <input
+              type="text"
+              id="role"
+              name="role"
+              placeholder="Enter your preferred role"
+              value={formData.role}
+              onChange={handleChange}
+              required
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-        <button type="submit">Submit</button>
-      </form>
+          {/* Additional */}
+          <div>
+            <label
+              htmlFor="additional"
+              className="block text-sm font-medium mb-1"
+            >
+              Additional Information (Optional)
+            </label>
+            <textarea
+              id="additional"
+              name="additional"
+              placeholder="Anything else you'd like to share"
+              value={formData.additional}
+              onChange={handleChange}
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+          </div>
+
+          {/* Submit */}
+          <div className="flex justify-center pt-2">
+            <button
+              type="submit"
+              className="bg-blue-950 text-white py-2 px-5 rounded-3xl hover:bg-blue-900 transition cursor-pointer"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 
