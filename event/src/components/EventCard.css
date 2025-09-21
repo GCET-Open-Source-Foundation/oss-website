@@ -1,0 +1,58 @@
+.event-card {
+    position: relative;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 280px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ai-workshop-card {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('banner.png');
+    background-color: #5d5d81;
+}
+
+.coding-contest-card {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('banner.png');
+    background-color: #4b4b74;
+}
+
+.event-type {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.learn-more-btn {
+    padding: 10px 18px;
+    border: 1px solid white;
+    background: #000080;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.learn-more-btn:hover {
+    background-color: #000066;
+    transform: scale(1.05);
+}
