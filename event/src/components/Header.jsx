@@ -1,13 +1,11 @@
 import React from 'react';
 import './Header.css';
+import logoImage from './logo.jpg';
 
 function Header() {
     return (
         <header className="app-header">
-            <div className="logo-container">
-                { }
-                <div className="hexagon-icon"></div>
-            </div>
+            <img src={logoImage} alt="Open Source Club Logo" className="app-logo" />
             <h1 className="header-title">Events</h1>
         </header>
     );
