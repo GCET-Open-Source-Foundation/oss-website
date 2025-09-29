@@ -1,99 +1,86 @@
 import React from "react";
-import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Github,
-  Linkedin,
-} from "lucide-react";
-
+import { Github, Linkedin } from "lucide-react";
 import "./Footer.css";
+
+// Link Data
+const quickLinks = [
+  { name: "Home", link: "/" },
+  { name: "Projects", link: "/projects" },
+  { name: "Members", link: "/members" },
+  { name: "About", link: "/about" },
+  { name: "Apply", link: "/apply" },
+];
+
+const resources = [
+  { name: "Blog", link: "/blog" },
+  { name: "Documentation", link: "/docs" },
+  { name: "Events", link: "/events" },
+  { name: "Contact", link: "/contact" },
+];
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-950 text-gray-200 pt-16 pb-8 px-6 md:px-20 mt-16 rounded-t-xl">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+    <footer className="bg-gray-950 text-gray-300 pt-12 pb-6 px-6 mt-16 rounded-t-xl">
+      <div className="max-w-5xl mx-auto flex flex-col items-center text-center gap-12">
         
-        {/* Brand / About */}
+        {/* Brand */}
         <div>
-          <img src="/gcetlogo.svg" alt="GCET Logo" className="h-12 mb-4" />
-          <p className="text-sm leading-relaxed max-w-xs">
-            This is GCET-OSS ;)
+          <img src="/gcetlogo.svg" alt="GCET Logo" className="h-12 mx-auto mb-3" />
+          <p className="text-sm text-gray-400 max-w-md">
+            The team of awesome developers.
           </p>
         </div>
 
-        {/* Quick Links */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-          <ul className="space-y-2">
-            {["Home", "Projects", "Members", "About", "Apply"].map((link) => (
-              <li key={link}>
-                <a href="#" className="hover:text-white transition">
-                  {link}
-                </a>
-              </li>
-            ))}
-          </ul>
+        {/* Links */}
+        <div className="grid grid-cols-2 gap-10 text-sm">
+          <div>
+            <h3 className="font-semibold mb-3 text-white">Quick Links</h3>
+            <ul className="space-y-2">
+              {quickLinks.map(({ name, link }) => (
+                <li key={name}>
+                  <a href={link} className="hover:text-white transition-colors">
+                    {name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-3 text-white">Resources</h3>
+            <ul className="space-y-2">
+              {resources.map(({ name, link }) => (
+                <li key={name}>
+                  <a href={link} className="hover:text-white transition-colors">
+                    {name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        {/* Resources */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Resources</h3>
-          <ul className="space-y-2">
-            {["Blog", "Documentation", "Events", "Contact"].map((item) => (
-              <li key={item}>
-                <a href="#" className="hover:text-white transition">
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Divider */}
+        <div className="border-t border-gray-700 w-full"></div>
 
-        {/* Newsletter */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Stay Updated</h3>
-          <p className="text-sm mb-4">
-            Subscribe to our newsletter and never miss an update.
-          </p>
-          <form className="flex flex-col sm:flex-row gap-3">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="px-4 py-2 rounded-md text-white w-full border-2 border-gray-500 bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <button
-              type="submit"
-              className="bg-white text-blue-950 px-5 py-2 rounded-md font-semibold hover:bg-gray-200 transition"
+        {/* Bottom Bar */}
+        <div className="flex flex-col md:flex-row justify-between items-center w-full gap-4 text-xs text-gray-500">
+          <p>© {new Date().getFullYear()} GCET-OSS. All rights reserved.</p>
+          <div className="flex gap-4">
+            <a
+              href="https://github.com/GCET-Open-Source-Foundation"
+              aria-label="Github"
+              className="hover:text-white"
             >
-              Subscribe
-            </button>
-          </form>
-        </div>
-      </div>
-
-      {/* Divider */}
-      <div className="border-t border-gray-600 my-8"></div>
-
-      {/* Bottom Bar */}
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-        <p>© {new Date().getFullYear()} GCET-OSS. All rights reserved.</p>
-        <div className="flex gap-4">
-          <a href="#" aria-label="Facebook" className="hover:text-white">
-            <Facebook size={20} />
-          </a>
-          <a href="#" aria-label="Twitter" className="hover:text-white">
-            <Twitter size={20} />
-          </a>
-          <a href="#" aria-label="Instagram" className="hover:text-white">
-            <Instagram size={20} />
-          </a>
-          <a href="#" aria-label="Github" className="hover:text-white">
-            <Github size={20} />
-          </a>
-          <a href="#" aria-label="LinkedIn" className="hover:text-white">
-            <Linkedin size={20} />
-          </a>
+              <Github size={18} />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/gcet-open-source-foundation/"
+              aria-label="LinkedIn"
+              className="hover:text-white"
+            >
+              <Linkedin size={18} />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
