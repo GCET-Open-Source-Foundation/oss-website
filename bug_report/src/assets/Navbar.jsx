@@ -21,12 +21,12 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a href="https://google.com" className="hover:text-blue-900 cursor-pointer">
+            <a href="/members" className="hover:text-blue-900 cursor-pointer">
               Members
             </a>
           </li>
           <li>
-            <a href="https://google.com" className="hover:text-blue-900 cursor-pointer">
+            <a href="/reports" className="hover:text-blue-900 cursor-pointer">
               Bug Report
             </a>
           </li>
@@ -34,7 +34,7 @@ const Navbar = () => {
 
         <div className="hidden md:block">
           <a
-            href="https://google.com"
+            href="/apply"
             className="bg-blue-950 text-white py-2 px-5 rounded-3xl hover:bg-blue-900 transition"
           >
             Apply
@@ -61,18 +61,18 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a href="https://google.com" className="hover:text-blue-900 cursor-pointer">
+            <a href="/members" className="hover:text-blue-900 cursor-pointer">
               Members
             </a>
           </li>
           <li>
-            <a href="https://google.com" className="hover:text-blue-900 cursor-pointer">
+            <a href="/reports" className="hover:text-blue-900 cursor-pointer">
               Bug Report
             </a>
           </li>
         </ul>
         <a
-          href="https://google.com"
+          href="/apply"
           className="block w-fit mt-4 bg-blue-950 text-white py-2 px-5 rounded-3xl hover:bg-blue-900 transition"
         >
           Apply
