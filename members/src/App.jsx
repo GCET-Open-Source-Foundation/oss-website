@@ -56,32 +56,10 @@ const faculty = [
 
 ];
 const maintainers = [
-  { name: "K Jayatheerth", roll: "23R11A05W4"},
-  { name: "M Sai Sree Harsha", roll: "23R11A05X8"},
-  { name: "K Advaith", roll: "23R11A05W7"},
-  { name: "S Nyneeta Rao", roll: "23R11A05Y0"},
-  { name: "K Keerthana", roll: "23R11A05B3"},
-  { name: "Vraj Kishore", roll: "24R11A05X5"}
 
 ];
 
 const contributors = [
-  { name: "D Shantan Dheer", roll: "EEE-1st Year" },
-  { name: "D Srinadh", roll: "CSE-2nd Year" },
-  { name: "Abdul Baseer", roll: "AIML-1st Year" },
-  { name: "Anushka Varakala ", roll: "CSE-2nd Year" },
-  { name: "Narayana Rohith", roll: "AIML-1st Year" },
-  { name: "K Arun", roll: "CSE-2nd Year" },
-  { name: "Murathota Jayakar Emmanuel", roll: "AIML-1st Year" },
-  { name: "Bhavana Sree Kalisetty ", roll: "AIML-1st Year" },
-  { name: "Amodini Mahdelay ", roll: "CSE-1st Year" },
-  { name: "P.V.Harshita", roll: "AIML-1st Year" },
-  { name: "Anushka Yamanoor ", roll: "AIML-1st Year" },
-  { name: "Madhu Sarika Shatdharshanam ", roll: "AIML-1st Year" },
-  { name: "Dudi Sai Chinmayee ", roll: "AIML-1st Year" },
-  { name: "Rachamalla Meghana ", roll: "AIML-1st Year" },
-  { name: "Rishith Kumar Guntuka", roll: "CSE-2nd Year" },
-  { name: "Mohammad muttaqi ali ", roll: "AIML-1st Year" },
 ];
 
   return (
