@@ -34,9 +34,13 @@ This copy lets you experiment safely without affecting the main project.
 On GitHub, this process is called *forking*.
 
    - Go to the OSS club GitHub repository and In the top-right corner, click the *Fork* button (it looks like a branch icon). 
-     ![Fork Repository Example](./images/s1.png) 
+     ![Fork Repository Example](./images/s1.png)  
+     If the image does not preview, [view Here](https://raw.githubusercontent.com/anushka-star/oss-website/contribution-guidelines/contribution_guidelines/beginners/tutorial/images/s1.png )
+
    - GitHub will create a copy of that repository inside your own account.
      ![Copy of the Repository Example](./images/s2.png) 
+     If the image does not preview, [view Here](https://raw.githubusercontent.com/anushka-star/oss-website/contribution-guidelines/contribution_guidelines/beginners/tutorial/images/s2.png )
+
 
 2. *Clone the Forked Repository* – 
 Cloning means downloading your *forked repository* (your copy of the project) from GitHub onto your local computer. This lets you make changes using VS Code. Once cloned, you’ll have a local folder containing all the files from the repository.  
@@ -49,12 +53,16 @@ Cloning means downloading your *forked repository* (your copy of the project) fr
    1.*Open your fork on GitHub*
    - Go to your forked repository page on GitHub.  
    - Click the green *Code* button and copy the *HTTPS* link. (HTTPS is easier for beginners.)  
-    ![Copy link Example](./images/s3.png) 
+    ![Copy link Example](./images/s3.png)
+      
+      If the image does not preview, [view Here](https://raw.githubusercontent.com/anushka-star/oss-website/contribution-guidelines/contribution_guidelines/beginners/tutorial/images/s3.png )
+
 
    2. *Open VS Code and its Terminal*
    - Open *VS Code* on your computer.  
    - Go to *View → Terminal* or press ``Ctrl+ `` to open the terminal at the bottom.
     ![Terminal Example](./images/terminal.png) 
+     If the image does not preview, [view Here](https://raw.githubusercontent.com/anushka-star/oss-website/contribution-guidelines/contribution_guidelines/beginners/tutorial/images/terminal.png )
 
    3. *Clone the repository*
    - In the terminal, type:
@@ -72,6 +80,8 @@ Cloning means downloading your *forked repository* (your copy of the project) fr
      This makes sure all the upcoming Git commands are run in the correct project directory.
     ![git clone Example](./images/s4.png) 
 
+If the image does not preview, [view Here](https://raw.githubusercontent.com/anushka-star/oss-website/contribution-guidelines/contribution_guidelines/beginners/tutorial/images/s4.png )
+
    - Check files inside:
      ```bash
      ls    # macOS/Linux
@@ -85,13 +95,22 @@ Cloning means downloading your *forked repository* (your copy of the project) fr
      git checkout -b <branch-name>
      ```
     ![Create a new branch Example](./images/s5.png) 
+If the image does not preview, [view Here](https://raw.githubusercontent.com/anushka-star/oss-website/contribution-guidelines/contribution_guidelines/beginners/tutorial/images/s5.png )
 
 4. *Create/Edit Files* – add your contribution.  
    - In this step, you edit existing files to add or improve content. For example, if you are working on index.html, you can add a paragraph, fix text, or update code. Editing files allows you to contribute without creating new files, which is common when improving documentation or website content.
    - Open the file in VS Code (index.html).
-   - Make your changes, for example: adding a paragraph
+   - Make your changes, for example: adding a paragraph  
+
     **Before changes**- ![Before edit Example](./images/s6.png) 
+     
+     If the image does not preview, [view Here](https://raw.githubusercontent.com/anushka-star/oss-website/contribution-guidelines/contribution_guidelines/beginners/tutorial/images/s6.png )  
+
+
     **After changes**- ![After edit Example](./images/s7.png) 
+     
+     If the image does not preview, [view Here](https://raw.githubusercontent.com/anushka-star/oss-website/contribution-guidelines/contribution_guidelines/beginners/tutorial/images/s7.png )
+
     After editing, you will stage and commit these changes in the next steps.
 
 
@@ -160,7 +179,12 @@ git commit -s
 When committing changes, VS Code opens automatically because it is set as the default editor. A new tab appears where you can write your commit message following the guidelines. After typing the message, save the file (Ctrl+S on Windows/Linux or Cmd+S on Mac), then close the VS Code tab. Once the editor is closed, the commit is completed, and you can continue working with your repository or push the commit to the remote.  
 
 ![Stage your changes Example](./images/s8.png)
+If the image does not preview, [view Here](https://raw.githubusercontent.com/anushka-star/oss-website/contribution-guidelines/contribution_guidelines/beginners/tutorial/images/s8.png )
+
 ![commit message editor Example](./images/s9.png) 
+
+If the image does not preview, [view Here](https://raw.githubusercontent.com/anushka-star/oss-website/contribution-guidelines/contribution_guidelines/beginners/tutorial/images/s9.png )
+
 
 ## Tips for Commit Messages:
 Write in present tense.
@@ -185,16 +209,23 @@ git commit --amend
      git push origin <branch-name>
      ```
      ![Push Branch Example](./images/s13.png)   
+     If the image does not preview, [view Here](https://raw.githubusercontent.com/anushka-star/oss-website/contribution-guidelines/contribution_guidelines/beginners/tutorial/images/s13.png )
+
      
 7. *Open a Pull Request (PR)* – submit changes for review.  
 - A Pull Request (PR) is how you submit your changes for review so that maintainers can approve and merge them into the main project. When you push your branch to GitHub, the website will usually show a “Compare & pull request” button. Clicking this will open the PR page, where GitHub automatically shows the differences between your branch and the main branch.
    ![Open PR Example](./images/s10.png)  
+If the image does not preview, [view Here](https://raw.githubusercontent.com/anushka-star/oss-website/contribution-guidelines/contribution_guidelines/beginners/tutorial/images/s10.png )
 
 - On the PR page, you should give your Pull Request a clear title summarizing your changes, e.g., “Added a paragraph in index.html for postcode info”.
    ![Add a title Example](./images/s11.png) 
+   If the image does not preview, [view Here](https://raw.githubusercontent.com/anushka-star/oss-website/contribution-guidelines/contribution_guidelines/beginners/tutorial/images/s11.png )
+
 
 - Once done, click the Open Pull Request button to submit your PR for review.  
   ![Create PR Example](./images/s12.png) 
+  If the image does not preview, [view Here](https://raw.githubusercontent.com/anushka-star/oss-website/contribution-guidelines/contribution_guidelines/beginners/tutorial/images/s12.png )
+
 
 ## Congratulations!
 You’ve just made your first open-source contribution!  
