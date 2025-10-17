@@ -13,7 +13,6 @@ const App = () => {
   return (
     <>
       <Navbar />
-
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden px-6 text-center">
         <motion.div
@@ -23,10 +22,6 @@ const App = () => {
           variants={fadeUp}
           viewport={{ once: true }}
         >
-          <h1 className="text-3xl mt-12 mb-4">Get In Touch</h1>
-          <p className="text-xl max-w-2xl mx-auto mb-12 text-black/70">
-            Building Tomorrow's Open Source Contributors
-          </p>
           <img
             className="mx-auto my-6 w-full max-w-md max-h-[560px] rounded-2xl shadow-lg object-cover"
             src="./contact.png"
@@ -34,7 +29,6 @@ const App = () => {
           />
         </motion.div>
       </section>
-
       {/* Contact Information */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
@@ -45,9 +39,11 @@ const App = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Contact Information
+            <h1 className="text-3xl mt-12 mb-4">Get In Touch</h1>
+            <p className="text-xl max-w-2xl mx-auto mb-12 text-black/70">
+              Building Tomorrow's Open Source Contributors
+            </p>
           </motion.h2>
-
           <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {[
               {
@@ -102,7 +98,6 @@ const App = () => {
           </div>
         </div>
       </section>
-
       {/* Faculty Coordinator */}
       <section className="py-20 relative overflow-hidden">
         <motion.div
@@ -133,7 +128,6 @@ const App = () => {
           </div>
         </motion.div>
       </section>
-
       {/* Core Team */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
