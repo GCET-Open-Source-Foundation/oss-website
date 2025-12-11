@@ -56,10 +56,27 @@ const faculty = [
 
 ];
 const maintainers = [
-
+  { name: "K Jayatheerth", roll: "President"},
+  { name: "K Advaith", roll: "Vice President"},
+  { name: "M Sai Sree Harsha", roll: "Secretary"},
+  { name: "Nyneeta", roll: "PR and Events lead"},
+  { name: "Hruthik Sai", roll: "Lead Maintainer"},
+  { name: "Aparna", roll: "Maintainer"},
+  { name: "Sai Sanjana", roll: "Maintainer"},
+  { name: "Sujith", roll: "Maintainer"},
+  { name: "Keerthana Kovvali", roll: "Design lead"},
 ];
 
 const contributors = [
+  { name: "Abdul Baseer", roll: "hashers"},
+  { name: "Anushka Varakala", roll: "Veyloris"},
+  { name: "Aryan", roll: "Practical-pioneers"},
+  { name: "Bhuvan", roll: "Cipher"},
+  { name: "Emmanuel MJ", roll: "Vertex"},
+  { name: "M Aishwarya Meher", roll: "valueadders"},
+  { name: "Rishit Ghosh", roll: "Nexora"},
+  { name: "Rishith", roll: "Odyssey"},
+  { name: "Tarun Jakkula", roll: "Sync"},
 ];
 
   return (
@@ -105,7 +122,7 @@ const contributors = [
         <div className="max-w-6xl mx-auto flex flex-col items-start text-left space-y-6 text-gray-800">
           <HorizontalScrollList title="Faculty and Supervising people" items={faculty} />
           <HorizontalScrollList title="Maintainers" items={maintainers} />
-          <HorizontalScrollList title="Contributors" items={contributors} />
+          <HorizontalScrollList title="Team Leads" items={contributors} />
         </div>
       </section>
 
