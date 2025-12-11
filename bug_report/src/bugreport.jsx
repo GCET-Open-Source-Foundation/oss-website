@@ -22,7 +22,6 @@ function BugReport() {
     if (name === "screenshots") {
       const newFiles = Array.from(files);
 
-      // Validate file types
       const allowedTypes = ["image/png", "image/jpg", "image/jpeg"];
       for (let file of newFiles) {
         if (!allowedTypes.includes(file.type)) {
@@ -31,7 +30,6 @@ function BugReport() {
         }
       }
 
-      // Merge with existing files
       const mergedFiles = [...formData.screenshots, ...newFiles];
 
       if (mergedFiles.length > 10) {
@@ -41,7 +39,6 @@ function BugReport() {
 
       setFormData((prev) => ({ ...prev, screenshots: mergedFiles }));
 
-      // Merge previews
       const mergedURLs = [
         ...previewImages,
         ...newFiles.map((file) => URL.createObjectURL(file)),
@@ -71,8 +68,61 @@ function BugReport() {
       }
     }
 
-    console.log("Bug Report Submitted:", formData);
-    alert("Bug report submitted successfully!");
+    // Email subject
+    const subject = `Bug Report - ${formData.bugTitle}`;
+
+    // Build email body
+    const bodyLines = [
+      `Bug Report Submitted`,
+      `--------------------------`,
+      `Full Name: ${formData.fullName}`,
+      `Email: ${formData.email}`,
+      `Bug Title: ${formData.bugTitle}`,
+      `Bug Type: ${formData.bugType || "Not specified"}`,
+      `Description: ${formData.description}`,
+      `URL: ${formData.url || "None"}`,
+      `Reason: ${formData.reason || "None"}`,
+      ``,
+      `Screenshots (${previewImages.length}):`,
+      previewImages.length
+        ? previewImages.map((src, i) => `Image ${i + 1}: ${src}`).join("\n")
+        : "No screenshots uploaded",
+      ``,
+      `--------------------------`,
+      `This email was generated from the OSS GCET Bug Report form.`,
+    ];
+
+    const body = bodyLines.join("\n");
+
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(body);
+
+    // Gmail compose URL
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=club.gcetoss@gmail.com&su=${encodedSubject}&body=${encodedBody}`;
+
+    // Fallback mailto link
+    const mailtoUrl = `mailto:club.gcetoss@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
+
+    const win = window.open(gmailUrl, "_blank");
+    if (!win) {
+      window.location.href = mailtoUrl;
+    }
+
+    alert("A Gmail compose window will open with your bug report details. Please review and attach screenshots manually.");
+
+    // Reset form
+    setFormData({
+      fullName: "",
+      email: "",
+      bugTitle: "",
+      bugType: "",
+      description: "",
+      url: "",
+      reason: "",
+      screenshots: [],
+    });
+
+    setPreviewImages([]);
   };
 
   return (
@@ -219,7 +269,6 @@ function BugReport() {
               Screenshots (PNG/JPG only, max 10)
             </label>
 
-            {/* Dropzone-style upload */}
             <div
               className="w-full border-2 border-dashed border-gray-300 rounded-xl p-6 text-center cursor-pointer hover:border-blue-500 transition"
               onClick={() => document.getElementById("screenshots").click()}
@@ -240,14 +289,12 @@ function BugReport() {
               onChange={handleChange}
             />
 
-            {/* Counter */}
             {previewImages.length > 0 && (
               <p className="text-sm text-gray-500 mt-3">
                 {previewImages.length} / 10 uploaded
               </p>
             )}
 
-            {/* Previews Grid */}
             {previewImages.length > 0 && (
               <div className="mt-3 grid grid-cols-3 sm:grid-cols-4 gap-3">
                 {previewImages.map((src, idx) => (
@@ -270,7 +317,6 @@ function BugReport() {
             )}
           </div>
 
-          {/* Submit */}
           <div className="flex justify-center">
             <button
               type="submit"
