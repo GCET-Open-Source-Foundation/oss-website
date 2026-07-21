@@ -1,8 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Navbar from "./assets/Navbar";
 import Footer from "./assets/Footer";
 import HorizontalScrollList from "./assets/HorizontalScrolling";
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
+import {
+  advisors,
+  contributors,
+  coreCommittee,
+  departments,
+  faculty,
+  maintainers,
+} from "./data";
+
+const MotionDiv = motion.div;
+const MotionSpan = motion.span;
 
 const App = () => {
   const letters = ["G", "C", "E", "T", "O", "S", "S"];
@@ -23,10 +34,12 @@ const App = () => {
     rotate: `${Math.random() * 360}deg`,
   });
 
+  // Keep the original animation shape from the committed page.
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const controls = letters.map(() => useAnimation());
 
   useEffect(() => {
-    controls.forEach((control, i) => {
+    controls.forEach((control) => {
       setTimeout(() => {
         control.start({
           ...randomPosition(),
@@ -48,19 +61,19 @@ const App = () => {
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.6], [1, 0.5, 0]);
-
-const faculty = [
-  { name: "Harish Chandra Reddy", roll: "Vice Chairman and Advisor of the OSS"},
-  { name: "D S V Jyothi", roll: "Primary Faculty Coordinator of OSS"},
-
-
-];
-const maintainers = [
-
-];
-
-const contributors = [
-];
+  const currentTeam = [
+    ...coreCommittee,
+    ...departments.map((department) => ({
+      ...department.lead,
+      team: department.name,
+    })),
+    ...departments.flatMap((department) =>
+      department.members.map((member) => ({
+        ...member,
+        team: department.name,
+      }))
+    ),
+  ];
 
   return (
     <>
@@ -68,7 +81,7 @@ const contributors = [
 
       {/* Hero section with animated letters */}
       <section className="min-h-screen flex flex-col items-center justify-start text-center relative px-4 pt-6 md:pt-30">
-        <motion.div style={{ scale, opacity }} className="w-full flex flex-col items-center">
+        <MotionDiv style={{ scale, opacity }} className="w-full flex flex-col items-center">
           <p className="text-4xl font-normal">Meet the OSS team</p>
           <p className="mt-4 max-w-xl text-gray-700 text-2xl">For the Maintainers and Contributors</p>
           <br />
@@ -83,14 +96,14 @@ const contributors = [
             {letters.map((letter, i) => {
               const isGCET = i < 4;
               return (
-                <motion.span
+                <MotionSpan
                   key={i}
                   className={`absolute select-none text-black ${isGCET ? "text-3xl" : "text-sm"} ml-2`}
                   initial={formationPositions[i]}
                   animate={controls[i]}
                 >
                   {letter}
-                </motion.span>
+                </MotionSpan>
               );
             })}
           </div>
@@ -99,13 +112,27 @@ const contributors = [
             We pick builders more than anyone, if you want or can build things
             consider joining GCET-OSS. We are actively looking for members.
           </p>
-        </motion.div>
+        </MotionDiv>
       </section>
       <section className="min-h-screen px-6 py-12 bg-white">
         <div className="max-w-6xl mx-auto flex flex-col items-start text-left space-y-6 text-gray-800">
           <HorizontalScrollList title="Faculty and Supervising people" items={faculty} />
-          <HorizontalScrollList title="Maintainers" items={maintainers} />
-          <HorizontalScrollList title="Contributors" items={contributors} />
+          <HorizontalScrollList title="Advisors" items={advisors} />
+          <HorizontalScrollList title="Current Team" items={currentTeam} />
+          {maintainers.length > 0 && (
+            <HorizontalScrollList
+              title="Maintainers"
+              items={maintainers}
+              showRole={false}
+            />
+          )}
+          {contributors.length > 0 && (
+            <HorizontalScrollList
+              title="Contributors"
+              items={contributors}
+              showRole={false}
+            />
+          )}
         </div>
       </section>
 

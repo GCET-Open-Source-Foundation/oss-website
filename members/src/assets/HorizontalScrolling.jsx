@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-const HorizontalScrollList = ({ title, items }) => {
+const HorizontalScrollList = ({ title, items, showRole = true }) => {
   const scrollRef = useRef(null);
 
   const scroll = (direction) => {
@@ -28,14 +28,25 @@ const HorizontalScrollList = ({ title, items }) => {
           className="flex overflow-x-auto space-x-6 py-2 px-12 h-40"
         >
           {items.map((item, i) => (
-          <div
-            key={i}
-            className="w-40 flex-shrink-0 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 transition flex flex-col items-center justify-center text-center p-4"
-          >
-            <p className="font-medium text-gray-800">{item.name}</p>
-            <span className="text-sm text-gray-500 mt-1">{item.roll}</span>
-          </div>
-
+            <div
+              key={i}
+              className="w-40 flex-shrink-0 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 transition flex flex-col items-center justify-center text-center p-4"
+            >
+              <p className="font-medium text-gray-800">{item.name}</p>
+              {showRole && (
+                <span className="text-sm text-gray-500 mt-1">{item.role}</span>
+              )}
+              {item.previousRole && (
+                <span className="text-xs text-gray-500 mt-2">
+                  Previously: {item.previousRole}
+                </span>
+              )}
+              {item.team && (
+                <span className="text-xs text-gray-500 mt-2">
+                  {item.team}
+                </span>
+              )}
+            </div>
           ))}
         </div>
 
